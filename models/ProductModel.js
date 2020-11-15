@@ -7,8 +7,10 @@ const productSchema= new mongoose.Schema({
         required:true
     },
     image:{
-        type:String,
-        required:false
+
+        data:Buffer,
+        type:String
+
     },
     description:{
 
@@ -20,7 +22,7 @@ const productSchema= new mongoose.Schema({
         required: true,
         default: 0,
       },
-      countInStock: {
+      quantity: {
         type: Number,
         required: true,
         default: 0,

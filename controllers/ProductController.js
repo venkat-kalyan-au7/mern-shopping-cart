@@ -2,18 +2,25 @@ import Product from "../models/ProductModel.js"
 
 import asyncHandler from 'express-async-handler'
 
-const createProduct = asyncHandler(async (req, res) => {
-    const product = new Product({
-      name: req.body.name,
-      price: req.body.price,
-      image: req.body.image,
-      countInStock: req.body.countInStock,
-      description: req.body.description,
-    })
+const createProduct = (req, res) => {
   
-    const createdProduct = await product.save()
-    res.status(201).json(createdProduct)
-  })
+	
+	  
+		const newProduct = new Product({
+			name: req.body.name,
+			price: req.body.price,
+			quantity: req.body.quantity,
+			description: req.body.description,
+			image: req.body.image
+		});
+		newProduct
+			.save()
+			.then(newProduct => res.send(newProduct))
+			.catch(err => {
+				return res.status(400).json(err);
+			});
+	}
+
 
 // Get all products
 
