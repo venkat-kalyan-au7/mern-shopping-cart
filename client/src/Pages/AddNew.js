@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import Message from '../components/Message'
 
 class AddProduct extends Component {
 	constructor() {
@@ -37,15 +37,23 @@ class AddProduct extends Component {
             description: this.state.description,
 			
 		};
+
+		
+
+		
 		console.log(newProduct);
 		axios
 			.post("api/products", newProduct)
 			.then(function(res) {
-				alert("Product Added Successfully");
-				window.location.reload();
+					alert('Product added to database')
+					
+				
+				
 			})
 			.catch(function(res) {
-				alert(res.response.data[Object.keys(res.response.data)[0]]);
+				<Message>
+					{(res.response.data[Object.keys(res.response.data)[0]])}
+				</Message>;
 			});
 	};
 
@@ -53,6 +61,8 @@ class AddProduct extends Component {
 		const { errors } = this.state;
 		return (
 			<div className="container">
+
+				
 				<div className="row">
 					<div className="col s8 offset-s2">
                     <Link className='btn btn-light my-3' to='/'>
