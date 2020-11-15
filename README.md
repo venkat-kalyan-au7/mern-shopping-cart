@@ -3,7 +3,7 @@
 
 **TECH STACK USED TO DEVELOP -MERN**
 
- **Backend**
+
 
     git clone https://github.com/venkat-kalyan-au7/mern-shopping-cart.git
 
@@ -15,7 +15,12 @@
     cd client
     npm i
     npm start to client
+    
+    
+    
 Node Version-15.0.1 is required
+
+
 
 
  **Backend**
